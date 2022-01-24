@@ -1,0 +1,6 @@
+^.*\.Rproj$
+^\.Rproj\.user$
+inst/hex
+^rmd$
+^adsl_describer\.html$
+^adsl_describer\.rmd$

@@ -1,0 +1,27 @@
+Package: dataxray
+Type: Package
+Title: An interactive table interface for data summaries
+Version: 0.1.0
+Author: Agustin Calatroni, Becca Krouse, Stephanie Lussier
+Maintainer: Agustin Calatroni <agustin_calatroni@rhoworld.com>
+Description: The dataxray package is an interactive framework for viewing data summaries 
+        produced by Frank Harrell's Hmisc::describe and powered by reactable. 
+License: MIT
+Encoding: UTF-8
+LazyData: true
+Depends: 
+    R (>= 2.10)
+Imports:
+    tidyverse,
+    haven,
+    lubridate,
+    Hmisc,
+    plotly,
+    htmltools,
+    shiny,
+    reactable (>= 0.2.3.9000),
+    reactablefmtr (>= 1.1.0),
+    gt
+Suggests:
+    crosstalk
+RoxygenNote: 7.1.2

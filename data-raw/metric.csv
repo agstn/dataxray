@@ -1,0 +1,16 @@
+METRIC,LINK,PNG,DEFINITION
+DETAILS,https://rdrr.io/cran/Hmisc/man/describe.html,details_crop.png,Nested information
+GMD,https://rdrr.io/cran/Hmisc/man/GiniMd.html,gmd_crop.png,Gini's mean difference  is a robust measure of dispersion defined as the mean absolute difference between any pairs of observations.
+INFO,https://rdrr.io/cran/Hmisc/man/describe.html,info_crop.png,relative information measure using the relative efficiency of a proportional odds/Wilcoxon test on the variable relative to the same test on a variable that has no ties. 
+MAX,https://rdrr.io/cran/Hmisc/man/describe.html,max_crop.png,Maximum 
+MIN,https://rdrr.io/cran/Hmisc/man/describe.html,min_crop.png,Minimum
+MEAN,https://en.wikipedia.org/wiki/Arithmetic_mean,mean_crop.png,Arithmetic mean
+Q05,https://en.wikipedia.org/wiki/Percentile,q05_crop.png,5th Percentile
+Q25,https://en.wikipedia.org/wiki/Quantile,q25_crop.png,25th Percentile
+MED,https://en.wikipedia.org/wiki/Median,median_crop.png,Median
+Q75,https://en.wikipedia.org/wiki/Quantile,q75_crop.png,75th Percentile
+Q95,https://en.wikipedia.org/wiki/Percentile,q95_crop.png,95th Percentile
+OBSERVED,https://rdrr.io/cran/Hmisc/man/describe.html,observed_crop.png,# of Observed Values
+DISTINCT,https://rdrr.io/cran/Hmisc/man/describe.html,distinct_crop.png,# of Distinct Values
+MISSING,https://rdrr.io/cran/Hmisc/man/describe.html,missing_crop.png,# and % of Missing Values
+ZOOM,https://rdrr.io/cran/Hmisc/man/histboxp.html,zoom_crop.png,ability to zoom over the x axis
