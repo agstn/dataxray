@@ -14,9 +14,9 @@
 #'
 #' @examples
 #'
-#' make_xray(safetyData::adam_adsl)
+#' make_xray(diamonds)
 #'
-#' make_xray(safetyData::adam_adsl, by = "ARM")
+#' make_xray(diamonds, by = 'cut')
 #'
 make_xray <- function(data, by = NULL){
 
