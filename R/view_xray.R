@@ -201,7 +201,8 @@ view_xray <- function(data_xray, data_xray_shared = NULL, by = NULL, elementId =
       divs <- map(cols, ~create_div(data=d, index = index, col = .x))
       htmltools::div(divs)
     }
-  )
+  ) %>% 
+    google_font("Roboto")
 
   tagList(
       div(
