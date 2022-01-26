@@ -19,8 +19,8 @@ Create comprehensive tibble of variable metadata using Hmisc::describe as engine
 }
 \examples{
 
-make_xray(safetyData::adam_adsl)
+make_xray(diamonds)
 
-make_xray(safetyData::adam_adsl, by = "ARM")
+make_xray(diamonds, by = 'cut')
 
 }

@@ -23,11 +23,12 @@ Create interactive table using Hmisc::describe + reactable
 }
 \examples{
 
-adsl <- safetyData::adam_adsl
-adsl_xray <- make_xray(adsl)
-view_xray(adsl_xray)
+diamonds \%>\% 
+ make_xray() \%>\% 
+ view_xray()
 
-adsl_xray <- make_xray_by(adsl, by = "ARM")
-view_xray(adsl_xray, by = "ARM")
+diamonds \%>\% 
+ make_xray(by = 'cut') \%>\% 
+ view_xray(by =)
 
 }
