@@ -139,6 +139,7 @@ view_xray <- function(data_xray, data_xray_shared = NULL, by = NULL, elementId =
                                   text_position = 'outside-base',
                                   fill_color = '#2780e3',
                                   fill_opacity = 0.5,
+                                  box_shadow = TRUE, 
                                   background = ifelse(min(data_xray$n)==max(data_xray$n),
                                                       "#2780E380",
                                                       'lightgrey'))
