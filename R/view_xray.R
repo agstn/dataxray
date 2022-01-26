@@ -100,7 +100,21 @@ view_xray <- function(data_xray, data_xray_shared = NULL, by = NULL, elementId =
                      width = 45,
                      sortable = TRUE,
                      align = 'center'),
+      
+      TYPE  = colDef(name = 'TYPE',
+                     header = with_tooltip('TYPE', 'Variable Type (Character, Date/Time, Numeric'),
+                     html = TRUE,
+                     width = 75,
+                     sortable = TRUE,
+                     align = 'center',
+                     cell = function(value) type_indicator(value)),
 
+      VAR = colDef(show = TRUE,
+                   name = '',
+                   sortable = F, 
+                   width = 0,
+                   cell = function(){''}),
+      
       LABEL = colDef(
         name = 'Name - Label',
         header = with_tooltip('Name - Label', 'Variable Name (Labels, Formats & Units if present'),
@@ -115,19 +129,9 @@ view_xray <- function(data_xray, data_xray_shared = NULL, by = NULL, elementId =
           )
         }),
 
-      VAR = colDef(show = FALSE),
-
       FORMAT = colDef(show = FALSE),
 
       UNITS = colDef(show = FALSE),
-
-      TYPE  = colDef(name = 'TYPE',
-                     header = with_tooltip('TYPE', 'Variable Type (Character, Date/Time, Numeric'),
-                     html = TRUE,
-                     width = 75,
-                     sortable = TRUE,
-                     align = 'center',
-                     cell = function(value) type_indicator(value)),
 
       n = colDef(name = 'Observed',
                  width = 150,
@@ -182,8 +186,11 @@ view_xray <- function(data_xray, data_xray_shared = NULL, by = NULL, elementId =
                           cell  = function(x){return(htmltools::div(x))},
                           align = 'center',
                           width  = 270),
+      
       counts_df = colDef(show = FALSE),
+      
       values_df = colDef(show = FALSE),
+      
       extremes_df = colDef(show = FALSE)
     ),
     details = function(index){
@@ -217,8 +224,8 @@ view_xray <- function(data_xray, data_xray_shared = NULL, by = NULL, elementId =
         div(
           tags$input(
             type = "text",
-            placeholder = "Search variable name/label",
-            style = "padding: 4px 8px; width: 75%",
+            placeholder = "Search NAME | LABEL",
+            style = "padding: 4px 8px; width: 50%",
             oninput = paste0("Reactable.setSearch('", elementId, "', this.value)")
           )
         )
