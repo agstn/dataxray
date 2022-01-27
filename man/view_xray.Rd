@@ -23,6 +23,8 @@ Create interactive table using Hmisc::describe + reactable
 }
 \examples{
 
+diamonds <- ggplot2::diamonds
+
 diamonds \%>\% 
  make_xray() \%>\% 
  view_xray()

@@ -13,7 +13,7 @@
 #' 
 #' \dontrun{
 #' 
-#' diamonds <- diamonds %>% 
+#' diamonds <- ggplot2::diamonds %>% 
 #'  mutate(price = structure(price, label = 'price in US dollars'),
 #'         carat = structure(carat, label = 'weight of the diamond'),
 #'         cut = structure(cut, label = 'quality of the cut (Fair, Good, Very Good, Premium, Ideal)'),
@@ -40,17 +40,6 @@ report_xray <- function(data, by = NULL, data_name, study, loc = NULL){
   } 
   
   if(!dir.exists(loc)) stop (paste0(loc," is not a valid directory"))
-  
-  # if (!is.null(by)){
-  #   report_template <- system.file("templates/report_xray_by.rmd", package = "dataxray")
-  #   
-  #   report_out <- file.path(loc, paste0(study,"_",data_name,"_xray_by_",by)) 
-  #   
-  #   params_in <- list(data = data,
-  #                     data_name = data_name,
-  #                     study = study,
-  #                     by = by)
-  # } else{
     
     report_template <- system.file("templates/report_xray.rmd", package = "dataxray")
     
@@ -60,8 +49,6 @@ report_xray <- function(data, by = NULL, data_name, study, loc = NULL){
                       data_name = data_name,
                       study = study,
                       by = by)
-    
- # }
   
   file.copy(report_template, paste0(report_out,".rmd"), overwrite = TRUE)
   

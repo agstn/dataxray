@@ -19,6 +19,7 @@ Create comprehensive tibble of variable metadata using Hmisc::describe as engine
 }
 \examples{
 
+diamonds <- ggplot2::diamonds
 make_xray(diamonds)
 
 make_xray(diamonds, by = 'cut')

@@ -39,12 +39,15 @@ type_indicator <- function(value = c("NUM", "CHAR", "DT/TIME")) {
 #' @importFrom reactablefmtr fivethirtyeight
 #' @importFrom purrr map
 #' @import htmltools
+#' @importFrom gt google_font
 #'
 #' @return Reactable display
 #' @export
 #'
 #' @examples
 #'
+#' diamonds <- ggplot2::diamonds
+#' 
 #' diamonds %>% 
 #'  make_xray() %>% 
 #'  view_xray()
@@ -203,11 +206,7 @@ view_xray <- function(data_xray, data_xray_shared = NULL, by = NULL, elementId =
         table_fun <- match.fun(paste0("nested_tab_", col))
         if (!is.null(d_col) && nrow(d_col)>0){
           if ((col=="values" & ncol(d_col)<=12) | (col=="counts" & ncol(d_col)>1) | col=="extremes"){
-<<<<<<< HEAD
-            htmltools::div(style = "padding: 2px 5px 2px 5px;",table_fun(d_col))
-=======
             htmltools::div(style = "padding: 2px 25px 2px 0px;",table_fun(d_col))
->>>>>>> 058f1b047609ceca1937a3e01989d6964c292515
           }
         }
       }
@@ -215,7 +214,7 @@ view_xray <- function(data_xray, data_xray_shared = NULL, by = NULL, elementId =
       htmltools::div(divs)
     }
   ) %>% 
-    google_font("Roboto")
+    gt::google_font("Roboto")
 
   tagList(
       div(

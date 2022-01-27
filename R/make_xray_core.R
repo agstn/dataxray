@@ -8,7 +8,7 @@
 #' @import dplyr
 #' @import tidyr
 #' @import forcats
-#' @importFrom purrr pluck
+#' @import purrr
 #'
 #' @return A tibble containing variable metadata.
 #' @export
@@ -16,7 +16,8 @@
 #'
 #' @examples
 #'
-#' make_xray_core(safetyData::adam_adsl)
+#' diamonds <- ggplot2::diamonds
+#' make_xray_core(diamonds)
 #'
 make_xray_core <- function(data){
 

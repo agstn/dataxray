@@ -27,7 +27,7 @@ Create X-ray report
 
 \dontrun{
 
-diamonds <- diamonds \%>\% 
+diamonds <- ggplot2::diamonds \%>\% 
  mutate(price = structure(price, label = 'price in US dollars'),
         carat = structure(carat, label = 'weight of the diamond'),
         cut = structure(cut, label = 'quality of the cut (Fair, Good, Very Good, Premium, Ideal)'),
