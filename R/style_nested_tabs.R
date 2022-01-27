@@ -16,7 +16,7 @@ nested_tab_theme <- function(){reactableTheme(
   tableStyle = list(
     fontFamily =  "Helvetica",
     fontSize = 12,
-    borderBottom = "2px solid #dddddd"
+    borderBottom = "1px solid #dddddd"
   ),
   headerStyle = list(
     borderWidth = "1px",
@@ -34,7 +34,22 @@ nested_tab_theme <- function(){reactableTheme(
     fontFamily = "Helvetica"
   ))}
 
-
+nested_extreme_theme <- function(){reactableTheme(
+  color = "black",
+  backgroundColor = "#ffffff",
+  borderWidth = "1px",
+  borderColor = "#dddddd",
+  stripedColor = "#dddddd",
+  highlightColor = "#f0f0f0",
+  cellPadding = "2px",
+  tableStyle = list(
+    fontFamily =  "Helvetica",
+    fontSize = 12,
+    borderBottom = "1px solid #dddddd"
+  ),
+  headerStyle = list(
+    display = "none"
+  ))}
 
 #' Create nested table display for values
 #'
@@ -63,7 +78,6 @@ nested_tab_values <- function(values_df){
                columns = list( name = colDef(name = ''))
     )
 }
-
 
 #' Create nested table display for counts
 #'
@@ -94,7 +108,6 @@ nested_tab_counts <- function(counts_df){
     )
 }
 
-
 #' Create nested table display for extremes
 #'
 #' @param extremes_df Dataframe of EXTREMES from Hmisc::describe
@@ -121,7 +134,7 @@ nested_tab_extremes <- function(extremes_df){
               fullWidth = FALSE,
               sortable = FALSE,
               class = "hidden-column-headers",
-              theme = nested_tab_theme(),
+              theme = nested_extreme_theme(),
               defaultColDef = colDef(align = 'center',
                                      name = '')
     )

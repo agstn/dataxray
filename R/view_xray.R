@@ -77,8 +77,9 @@ view_xray <- function(data_xray, data_xray_shared = NULL, by = NULL, elementId =
     pagination = FALSE,
     compact = TRUE,
     highlight = TRUE,
+    fullWidth = FALSE,
     defaultExpanded = FALSE,
-    height = 850,
+    # height = 850,
     theme = reactablefmtr::fivethirtyeight(),
 
     defaultColDef = colDef(vAlign = 'top',
@@ -202,7 +203,7 @@ view_xray <- function(data_xray, data_xray_shared = NULL, by = NULL, elementId =
         table_fun <- match.fun(paste0("nested_tab_", col))
         if (!is.null(d_col) && nrow(d_col)>0){
           if ((col=="values" & ncol(d_col)<=12) | (col=="counts" & ncol(d_col)>1) | col=="extremes"){
-            htmltools::div(style = "padding: 5px 25px 5px 0px;",table_fun(d_col))
+            htmltools::div(style = "padding: 2px 25px 2px 0px;",table_fun(d_col))
           }
         }
       }
