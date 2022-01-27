@@ -48,7 +48,16 @@ nested_extreme_theme <- function(){reactableTheme(
     borderBottom = "1px solid #dddddd"
   ),
   headerStyle = list(
-    display = "none"
+    #display = "none"
+    background = "#00FF00",
+    position =  "absolute",
+    width    = "1px",
+    height   =  '1px',
+    padding  =  "0",
+    margin   = '-1px',
+    overflow = 'hidden',
+    clip     = 'rect(0, 0, 0, 0)',
+    border   = '0'
   ))}
 
 #' Create nested table display for values
