@@ -54,7 +54,7 @@ type_indicator <- function(value = c("NUM", "CHAR", "DT/TIME")) {
 #'
 #' diamonds %>% 
 #'  make_xray(by = 'cut') %>% 
-#'  view_xray(by =)
+#'  view_xray(by = 'cut')
 #'
 view_xray <- function(data_xray, data_xray_shared = NULL, by = NULL, elementId = NULL){
 
@@ -214,7 +214,7 @@ view_xray <- function(data_xray, data_xray_shared = NULL, by = NULL, elementId =
       htmltools::div(divs)
     }
   ) %>% 
-    gt::google_font("Roboto")
+    reactablefmtr::google_font("Roboto")
 
   tagList(
       div(
