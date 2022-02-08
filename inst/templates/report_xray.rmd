@@ -59,6 +59,8 @@ Inputs {.sidebar data-width=300}
 -------------------------------------
 
 <br>
+<center>
+![](hex_xray.png){width = 150px}
 
 ```{r} 
 d_reactable <- data_xray   
