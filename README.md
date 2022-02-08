@@ -11,6 +11,7 @@ Install package from GitHub with:
 devtools::install_github("agstn/dataxray")
 ```
 
+## Report Xray
 [Example](https://agstn.github.io/dataxray/) using ggplot2 [diamonds](https://ggplot2.tidyverse.org/reference/diamonds.html) data
 
 ```
@@ -36,3 +37,13 @@ diamonds %>%
 <p><a href="https://agstn.github.io/dataxray/">
 <img src="index.png" width="100%" height="100%">
 </a></p>
+
+## View Xray
+RStudio IDE  Viewer pane  
+```
+library(dataxray)
+
+diamonds %>% 
+   make_xray() %>% 
+   view_xray()
+```
