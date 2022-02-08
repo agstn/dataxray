@@ -1,6 +1,6 @@
+<img src="inst/templates/hex_xray.png" width="15%" height="15%">
+
 # dataxray
-<br>
-<img scr="https://raw.githubusercontent.com/agstn/dataxray/main/inst/templates/hex_xray.png" width="70%" height="70%">
 
 An interactive table interface for data summaries
 
