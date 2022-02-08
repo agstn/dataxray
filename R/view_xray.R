@@ -39,7 +39,6 @@ type_indicator <- function(value = c("NUM", "CHAR", "DT/TIME")) {
 #' @importFrom reactablefmtr fivethirtyeight
 #' @importFrom purrr map
 #' @import htmltools
-#' @importFrom gt google_font
 #'
 #' @return Reactable display
 #' @export
