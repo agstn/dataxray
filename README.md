@@ -11,7 +11,7 @@ Install package from GitHub with:
 devtools::install_github("agstn/dataxray")
 ```
 
-Example using ggplot2 [diamonds](https://ggplot2.tidyverse.org/reference/diamonds.html) data
+[Example](https://agstn.github.io/dataxray/) using ggplot2 [diamonds](https://ggplot2.tidyverse.org/reference/diamonds.html) data
 
 ```
 library(dataxray)
