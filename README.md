@@ -32,3 +32,7 @@ diamonds <- diamonds %>%
 diamonds %>% 
   report_xray(data_name = 'Diamonds', study = 'ggplot2')
 ```
+
+<p><a href="https://agstn.github.io/dataxray/">
+<img src="index.png" width="100%" height="100%">
+</a></p>
