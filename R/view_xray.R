@@ -85,7 +85,8 @@ view_xray <- function(data_xray, data_xray_shared = NULL, by = NULL, elementId =
     theme = reactablefmtr::fivethirtyeight(),
 
     defaultColDef = colDef(vAlign = 'top',
-                           sortable = FALSE),
+                           sortable = FALSE,
+                           width  = 275),
 
     columnGroups = list(
       colGroup(name = 'Variable',
@@ -188,7 +189,7 @@ view_xray <- function(data_xray, data_xray_shared = NULL, by = NULL, elementId =
                           footerStyle = "font-weight: bold; font-size: 12px; text-transform: uppercase;",
                           cell  = function(x){return(htmltools::div(x))},
                           align = 'center',
-                          width  = 270),
+                          width  = 275),
       
       counts_df = colDef(show = FALSE),
       
