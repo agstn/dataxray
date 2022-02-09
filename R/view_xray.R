@@ -79,7 +79,7 @@ view_xray <- function(data_xray, data_xray_shared = NULL, by = NULL, elementId =
     pagination = FALSE,
     compact = TRUE,
     highlight = TRUE,
-    fullWidth = FALSE,
+    fullWidth = TRUE,
     defaultExpanded = FALSE,
     # height = 850,
     theme = reactablefmtr::fivethirtyeight(),
