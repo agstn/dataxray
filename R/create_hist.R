@@ -102,6 +102,9 @@ create_hist.character <- function(x, counts, values){
 create_hist.factor <- create_hist.character
 
 #' @export
+create_hist.logical <- create_hist.character
+
+#' @export
 create_hist.numeric <- function(x, counts, values){
 
   y <- -1
