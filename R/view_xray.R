@@ -213,8 +213,8 @@ view_xray <- function(data_xray, data_xray_shared = NULL, by = NULL, elementId =
       divs <- map(cols, ~create_div(data=d, index = index, col = .x))
       htmltools::div(divs)
     }
-  ) %>% 
-    reactablefmtr::google_font("Roboto")
+  ) #%>% 
+    #reactablefmtr::google_font("Roboto")
 
   tagList(
       div(
