@@ -1,0 +1,93 @@
+---
+params:
+    study:  NA
+    data:   NA
+    data_name: NA
+    by: 
+title:      'Study: `r params$study`  &nbsp; &nbsp; Data: `r params$data_name`' 
+date:       "<i class='fas fa-file-contract'></i> Created: `r format(Sys.time(),format='%A %d %b %Y  %I:%M %p %Z')`"
+output: 
+   flexdashboard::flex_dashboard: 
+     self_contained: true
+     mathjax: NULL
+     source_code: "https://github.com/agstn/dataxray" 
+---
+
+```{=html}
+<style collection="text/css">
+
+.main-container {
+max-width:    1200px;
+margin-left:  auto;
+margin-right: auto;}
+
+.rt-search{
+align-self: baseline;
+width: 400px;
+margin-bottom: 0px;
+}
+
+svg.main-svg{
+overflow:visible !important;
+}
+</style>
+```
+
+
+```{r knitr-defaults}
+knitr::opts_chunk$set(warning = FALSE, message = FALSE, comment = NA)
+knitr::opts_chunk$set(cache = FALSE)
+options(width=170)
+```
+
+```{r load-packages}
+library(dataxray)
+library(tidyverse)
+library(haven)
+library(crosstalk)
+```
+
+```{r sample-vars, include=FALSE}
+data <- params$data
+dim  <- dim(data)
+data_xray <- make_xray(data, by = params$by)
+```
+
+# DATA XRAY {#main}
+
+Inputs {.sidebar data-width=300}
+-------------------------------------
+
+<br>
+
+```{r} 
+d_reactable <- data_xray   
+
+d_reactable_shared <- SharedData$new(d_reactable)
+
+filter_select('type', 'variable TYPE',    d_reactable_shared, ~ TYPE)
+filter_select('var',  'variable NAME',    d_reactable_shared, ~ VAR)
+filter_select('lab',  'variable LABEL',   d_reactable_shared, ~ LABEL)
+filter_select('n',    'variable COMPLETE',d_reactable_shared, ~ ifelse(n == dim[1], 'YES', 'NO'))
+
+filter_slider('missing', 'variable % MISSING', d_reactable_shared,  ~ 100*(missing/dim[1]),
+              width = 250,
+              post = '%',
+              min = 0, max = 100,
+              dragRange = FALSE,
+              step = 5, round = TRUE, sep = '', ticks = TRUE)
+
+filter_slider('distinct', 'variable # DISTINCT', d_reactable_shared, ~ distinct,
+              width = 250,
+              min = 1, dragRange = FALSE,
+              step = 5, ticks = FALSE)
+```
+
+
+Column
+-------------------------------------
+### <i class='fas fa-th'></i> **`r toupper(params$data_name)`** DATA with **`r dim[1]`** OBSERVATIONS and **`r dim[2]`** VARIABLES  
+
+```{r create-reactable-1}
+view_xray(data_xray = d_reactable, data_xray_shared = d_reactable_shared, by = params$by)
+```
