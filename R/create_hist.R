@@ -95,7 +95,6 @@ create_hist.character <- function(x, counts, values){
       plotly::config(displayModeBar = F) %>%
       plotly::partial_bundle()
   }
-
 }
 
 #' @export
@@ -106,12 +105,14 @@ create_hist.logical <- create_hist.character
 
 #' @export
 create_hist.numeric <- function(x, counts, values){
-
+  
+  n_distinct <- counts[["distinct"]] %>% as.numeric
+  
+  if (n_distinct>0) {
   y <- -1
   fmt <- function(x) Hmisc::htmlSN(x, digits=5)
   height <- Hmisc::plotlyParm$heightDotchart(1.2)
 
-  n_distinct <- counts[["distinct"]] %>% as.numeric
 
       dh <- data.frame(x = values$value, freq = values$frequency, y = y) %>%
         mutate(prop = freq/sum(freq),
@@ -162,6 +163,7 @@ create_hist.numeric <- function(x, counts, values){
                              size=I(10),
                              name='Mean',
                              showlegend=FALSE)
+}
 
     if (n_distinct>=10) {
       #  quartiles
@@ -210,6 +212,17 @@ create_hist.numeric <- function(x, counts, values){
     p <- qs(p, x= ~ qu[2], xend=~ qu[4], color=I('blue'), lg='Quartiles')
     p <- qs(p, x= ~ qu[4], xend=~ qu[5], color=I('red'),  lg=onam)
 
+    }
+    
+    if (n_distinct==0){
+      # initiate plot
+      
+      min_width = 50
+      max_width = 250
+      width = 17
+      
+      p <- plotly::plot_ly(width = max_width+20,
+                           height = 60)
     }
 
     plotly::layout(p,
