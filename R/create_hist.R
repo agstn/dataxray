@@ -98,6 +98,12 @@ create_hist.character <- function(x, counts, values){
 }
 
 #' @export
+create_hist.hms  <- create_hist.character
+
+#' @export
+create_hist.difftime  <- create_hist.character
+
+#' @export
 create_hist.factor <- create_hist.character
 
 #' @export
@@ -253,6 +259,8 @@ create_hist.Date <- function(x, counts, values){
 
   n_distinct <- counts[["distinct"]] %>% as.numeric
 
+  
+  if (n_distinct >0){
     dh <- data.frame(x = values$value, freq = values$frequency, y = y) %>%
       mutate(prop = freq/sum(freq),
              txt = paste0(x, '<br>', round(prop, 3), '<br>n=', freq))
@@ -301,6 +309,7 @@ create_hist.Date <- function(x, counts, values){
                            size=I(10),
                            name='Mean',
                            showlegend=FALSE)
+
 
   if (n_distinct >=10){
 
@@ -351,6 +360,7 @@ create_hist.Date <- function(x, counts, values){
   p <- qs(p, x= ~ qu[4], xend=~ qu[5], color=I('red'),  lg=onam)
 
   }
+  
 
   plotly::layout(p,
                  margin = list(l = 10, r = 10, b = 0, t = 0, pad = 0),
@@ -367,8 +377,10 @@ create_hist.Date <- function(x, counts, values){
                                    align = "left"))%>%
     plotly::config(displayModeBar = F) %>%
     plotly::partial_bundle()
+  }
 
 }
+
 
 #' @export
 create_hist.POSIXct  <- create_hist.Date

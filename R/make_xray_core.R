@@ -45,7 +45,7 @@ make_xray_core <- function(data){
     mutate(
       TYPE = case_when(
         is.character(x) | is.factor(x) | is.logical(x) ~ "CHAR",
-        lubridate::is.Date(x) | lubridate::is.POSIXct(x) | lubridate::is.POSIXlt(x) ~ "DT/TIME",
+        lubridate::is.Date(x) | lubridate::is.POSIXct(x) | lubridate::is.POSIXlt(x) | hms::is_hms(x) ~ "DT/TIME",
         is.numeric(x) ~ "NUM"
       ),
       describe = Hmisc::describe(x, digits = 3, exclude.missing = FALSE) %>% list(),
